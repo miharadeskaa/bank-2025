@@ -4,7 +4,7 @@ et aux méthodes Deposit et Withdraw.
 */
 public interface IAccount
 {
-    double balance { get; set; }
+    double Balance { get; }
     void Withdraw(double amount);
     void Deposit(double amount);
 }

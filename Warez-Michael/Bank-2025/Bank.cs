@@ -1,9 +1,9 @@
-using System;
-
 class Bank(Dictionary<string, CurrentAccount> accounts,string name)
 {
     public Dictionary<string, CurrentAccount> Accounts { get;  private set; } = accounts;
     public string Name { get; set; } = name;
+
+
 
     public void AddAccount(CurrentAccount account)
     {
@@ -17,7 +17,7 @@ class Bank(Dictionary<string, CurrentAccount> accounts,string name)
         }
     }
 
-    public void RemoveAccount(string nombre)
+    public void RemoveAccoun(CurrentAccount account, string nombre)
     {
         if (Accounts.ContainsKey(nombre))
         {
@@ -64,5 +64,10 @@ class Bank(Dictionary<string, CurrentAccount> accounts,string name)
         {
             Console.WriteLine($"Solde total pour {user.FirstName} {user.LastName}: {totalBalance}");
         }
+    }
+
+    public void RemoveAccount(CurrentAccount account1)
+    {
+        throw new NotImplementedException();
     }
 }

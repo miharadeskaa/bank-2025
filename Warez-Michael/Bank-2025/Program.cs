@@ -1,8 +1,4 @@
-﻿using System;
-
-
-
-class Program
+﻿class Program
 {
     static void Main(string[] args)
     {
@@ -12,7 +8,7 @@ class Program
             LastName = "Doe",
             BirthDate = new DateTime(30, 1, 1990)
         };
-        //
+        
         Person person2 = new Person
         {
             FirstName = "Jane",
@@ -23,7 +19,7 @@ class Program
         CurrentAccount account2 = new CurrentAccount("ACC456", 2000.0, 1000.0, person2);
 
 
-        // affichage des informations
+        // Affichage des informations
 
         Console.WriteLine($"Name: {person1.FirstName} {person1.LastName}, Birth Date: {person1.BirthDate:d}");
         Console.WriteLine($"Name: {person2.FirstName} {person2.LastName}, Birth Date: {person2.BirthDate.ToShortDateString()}");

@@ -29,4 +29,10 @@ class CurrentAccount(string nombre,double balance, double creditline, Person Own
     {
         _balance += amount;
     }
+    // Constructeur avec le numéro et le titulaire
+    //et le numéro, le titulaire et le solde comme paramètres
+    public CurrentAccount(string nombre, Person owner) :
+        this(nombre, 0.0, 0.0, owner)
+    {
+    }
 }
