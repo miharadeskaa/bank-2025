@@ -4,15 +4,16 @@ propirété publique : Nombre,double balance(lecture seule), CreditLine ,Owner
 methodes publiques : void Withdraw, void deposit(double amount)
 */
 
-class CurrentAccount(string nombre,double balance, double creditline, Person Owner)
+class CurrentAccount(string nombre, double balance, double creditline, Person Owner)
 
 {
     public string Nombre { get; set; } = nombre;
     private double _balance = balance;
     public double Balance => _balance;
-    public double creditline { get; set; } = creditline;
-
+    private decimal _creditLine = (decimal)creditline;
     public Person owner { get; set; } = Owner;
+
+
     public void Withdraw(double amount)
     {
         if (amount > Balance)
@@ -35,4 +36,20 @@ class CurrentAccount(string nombre,double balance, double creditline, Person Own
         this(nombre, 0.0, 0.0, owner)
     {
     }
+    private decimal creditLine;
+
+public decimal CreditLine
+{
+    get { return creditLine; }
+    set
+    {
+        if (value < 0)
+        {
+                throw new ArgumentOutOfRangeException(nameof(CreditLine),
+                    "La valeur doit être supérieure ou égale à zéro.");
+        }
+        creditLine = value;
+    }
+}
+
 }
