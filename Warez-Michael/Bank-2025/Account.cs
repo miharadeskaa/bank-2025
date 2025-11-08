@@ -6,19 +6,27 @@ class Account(string nombre, double balance, Person owner)
 
     public virtual void Withdraw(double amount)
     {
+        if (amount <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount), "Le montant du retrait doit être supérieur à zéro.");
+        }
         if (amount > Balance)
         {
-            Console.WriteLine("Le solde est insuffisant.");
+            throw new InvalidOperationException("Fonds insuffisants pour le retrait.");
         }
-        else
-        {
-            Balance -= amount;
-        }
+        Balance -= amount;
     }
+    
     public virtual void Deposit(double amount)
+{
+    if (amount <= 0)
     {
-        Balance += amount;
+        throw new ArgumentOutOfRangeException(nameof(amount), "Le montant du dépôt doit être supérieur à zéro.");
     }
+
+    Balance += amount;
+}
+
     // Constructeur avec le numéro et le titulaire
     //et le numéro, le titulaire et le solde comme paramètres
     private Account(string nombre, Person owner) : 
