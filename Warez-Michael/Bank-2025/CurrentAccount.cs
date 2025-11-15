@@ -61,7 +61,7 @@ class CurrentAccount(string nombre, double balance, double creditline, Person Ow
 
     }
 
-    public object CreditLine { get; internal set; }
+    public required object CreditLine { get; internal set; }
 
 
     // Méthode pour mettre à jour la ligne de crédit
@@ -70,4 +70,21 @@ class CurrentAccount(string nombre, double balance, double creditline, Person Ow
         Creditline = newCreditLine;
         Console.WriteLine("La ligne de crédit a été mise à jour.");
     }
+
+    //Déclenchez l' évenement NegativeBalanceEvent lorsque le solde devient négatif
+
+    private void NegativeBalanceEvent(CurrentAccount currentAccount)
+    {
+        throw new NotImplementedException();
+    }
+    
+    private void CheckNegativeBalance()
+    {
+        if (Balance < 0)
+        {
+            NegativeBalanceEvent(this);
+        }
+    }
+
+    
 }
