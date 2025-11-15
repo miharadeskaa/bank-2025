@@ -84,17 +84,15 @@ class Account(string nombre, double balance, Person? owner)
         this(nombre, 0.0, owner)
     {
     }
-    
-    // Déclaration du délégué
-    public delegate void NegativeBalanceDelegate(Account account);
 
-    // Déclaration de l'événement
-    public event NegativeBalanceDelegate? NegativeBalanceEvent;
-
-    // Changer le type de l'événement appelée "BalanceNegativeEvent" en utilisant le délégué "action" ou "func"
+    // Supprimer la déclaration du type délégué "BalanceNegativeDelegate"
     
+       public delegate void NegativeBalanceDelegate(Account account);
+
+ 
     // Déclaration de l'événement utilisant Action
     public event Action<Account>? BalanceNegativeEvent;
+    
 
     // Déclaration de l'événement utilisant Func
     public event Func<Account, bool>? BalanceNegativeFuncEvent;
